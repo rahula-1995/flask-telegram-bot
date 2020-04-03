@@ -123,7 +123,7 @@ def get7(all):
 def get9(district):
 	fg,b=getd(district)
 	if fg=='invalid district name':
-		tex='sorry i did not understand or there is no case in this district'
+		tex='sorry i did not understand or there is no case in this district\n'
 	else:
 		tex='COVID-19 Updates 👇\n''▪️ Total Cases:'+str(fg)+'\n'
 	return tex+'1. Latest Update and Alerts on Coronavirus\n''2. What is Coronavirus and what are its symptoms?\n''3. How does Coronavirus spread?\n''4. How to reduce the risk of Coronavirus?\n''5. Professional Advice by Doctors\n''6. Where to get help?\n''7. News on coronavirus across the globe\n''👉 Type 1, 2, 3, 4, 5, 6 to see other options\n''👉 Type Menu to view the Main Menu\n''👉 To check details of your state. Please type the name of your state below 👇\n''For eg. Maharashtra\n''👉 To check details of your District. Please type the name of your District below 👇\n''For eg. Patna\n'
