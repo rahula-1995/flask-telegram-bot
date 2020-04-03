@@ -12,6 +12,7 @@ import os
 TOKEN = os.environ["TOKEN"]
 GOOGLE_CHROME_PATH = '/app/.apt/usr/bin/google_chrome'
 CHROMEDRIVER_PATH = '/app/.chromedriver/bin/chromedriver'
+import time
 #chrome_options = webdriver.ChromeOptions()
 #chrome_options.add_argument('--disable-gpu')
 #chrome_options.add_argument('--no-sandbox')
@@ -55,6 +56,7 @@ def get5(all):
 	return tex
 def gets(state):
 	driver.get('https://www.covid19india.org/')
+	time.sleep(2)
 	content1=driver.page_source
 	soup1 = BeautifulSoup(content1)
 	ty = soup1.find_all('tr', attrs={'class': 'state'})
@@ -132,9 +134,11 @@ def getd(district):
 	else:
 		k='Gaya'
 	driver.get('https://www.covid19india.org/')
+	time.sleep(3)
 	content1 = driver.page_source
 
 	soup1 = BeautifulSoup(content1)
+	print(soup1)
 
 	dis = soup1.find_all('tr', attrs={'class': 'district'})
 	w=[]
