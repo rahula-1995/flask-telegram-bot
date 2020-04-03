@@ -8,6 +8,8 @@ import re
 from bs4 import BeautifulSoup
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
+import os
+TOKEN = os.environ["TOKEN"]
 GOOGLE_CHROME_PATH = '/app/.apt/usr/bin/google_chrome'
 CHROMEDRIVER_PATH = '/app/.chromedriver/bin/chromedriver'
 #chrome_options = webdriver.ChromeOptions()
@@ -180,7 +182,7 @@ def parse_message(message):
 		symbol=''
 	return chat_id,txt
 def send_message(chat_id,text='blabla'):
-	url='https://api.telegram.org/bot1011585157:AAGLH_X6ZWsKUr9UOYiDwthL7e6oNh6kQJU/sendMessage'
+	url='https://api.telegram.org/bot'+str(TOKEN)+'/sendMessage'
 	payload={'chat_id':chat_id,'text':text}
 
 	r=requests.post(url,json=payload)
@@ -228,8 +230,7 @@ def index():
 		return '<h1>corona virus is very deadly</h1>'
 
 
-# https://api.telegram.org/bot1011585157:AAGLH_X6ZWsKUr9UOYiDwthL7e6oNh6kQJU/getMe
-# https://api.telegram.org/bot1011585157:AAGLH_X6ZWsKUr9UOYiDwthL7e6oNh6kQJU/setwebhook?url=https://79a3838a.ngrok.io/
+
 def main():
     get_cmc_data('BTC')
 
