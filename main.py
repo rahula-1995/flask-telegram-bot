@@ -26,14 +26,7 @@ def write_json(data ,filename='response.json'):
 	with open(filename ,'w') as f:
 		json.dump(data ,f ,indent=4 ,ensure_ascii=False)
 
-def get_cmc_data(crypto):
-	url ='https://pro-api.coinmarketcap.com/v1/cryptocurrency/quotes/latest'
-	params ={'symbol' :crypto ,'convert' :'USD'}
-	headers ={'X-CMC_PRO_API_KEY' :"171099a4-51d6-4cea-850c-66c76e93e984"}
-	r=requests.get(url,headers=headers,params=params).json()
-	price = r['data'][crypto]['quote']['USD']['price']
-	return price
-	write_json(r)
+
 def geth(all):
 	tex='Namaste ''\nThis is Coronavirus (COVID-19) Helpdesk developed by Rahul Anand to create awareness and help you and your family stay safe.\n''For any emergency \n''📞 Helpline: 011-23978046 | Toll-Free Number: 1075\n''✉️ Email: ncov2019@gov.in\n''Please choose from the following options 👇\n''1. Latest Update and Alerts on Coronavirus\n''2. What is Coronavirus and what are its symptoms?\n''3. How does Coronavirus spread?\n''4. How to reduce the risk of Coronavirus?\n''5. Professional Advice by Doctors\n''6. Where to get help?\n''7. News on coronavirus across the globe\n''💡 Tip: You can type 1, 2, 3, 4, 5, 6, 7 to make a selection of the menu options or\n''👉 To check details of your state. Please type the name of your state below 👇\n''For eg. Maharashtra\n''👉 To check details of your District. Please type the name of your District below 👇\n''For eg. Patna\n'
 	return tex
@@ -173,13 +166,7 @@ def getd(district):
 def parse_message(message):
 	chat_id=message['message']['chat']['id']
 	txt=message['message']['text']
-	pattern=r'/[a-zA-Z]{2,4}'
-	ticker=re.findall(pattern,txt)
-	if ticker:
-		symbol=ticker[0][1:].upper()
 
-	else:
-		symbol=''
 	return chat_id,txt
 def send_message(chat_id,text='blabla'):
 	url='https://api.telegram.org/bot'+str(TOKEN)+'/sendMessage'
@@ -229,10 +216,6 @@ def index():
 
 		return '<h1>corona virus is very deadly</h1>'
 
-
-
-def main():
-    get_cmc_data('BTC')
 
 
 
