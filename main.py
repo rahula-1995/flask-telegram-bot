@@ -138,7 +138,6 @@ def getd(district):
 	content1 = driver.page_source
 
 	soup1 = BeautifulSoup(content1)
-	print(soup1)
 
 	dis = soup1.find_all('tr', attrs={'class': 'district'})
 	w=[]
