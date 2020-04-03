@@ -150,6 +150,7 @@ def getd(district):
 
 		if flag:
 			break
+	print(w)
 	if len(w)>0:
 		w.pop(1)
 	rows = soup1.find_all('div', attrs={'class': 'Level fadeInUp'})
@@ -157,6 +158,7 @@ def getd(district):
 	li = []
 	for ele in rt:
 		li.append(ele.text)
+	print(li)
 	if len(w)<2:
 		return 'invalid district name',li
 	else:
