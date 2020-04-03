@@ -31,11 +31,11 @@ def geth(all):
 	tex='Namaste ''\nThis is Coronavirus (COVID-19) Helpdesk developed by Rahul Anand to create awareness and help you and your family stay safe.\n''For any emergency \n''📞 Helpline: 011-23978046 | Toll-Free Number: 1075\n''✉️ Email: ncov2019@gov.in\n''Please choose from the following options 👇\n''1. Latest Update and Alerts on Coronavirus\n''2. What is Coronavirus and what are its symptoms?\n''3. How does Coronavirus spread?\n''4. How to reduce the risk of Coronavirus?\n''5. Professional Advice by Doctors\n''6. Where to get help?\n''7. News on coronavirus across the globe\n''💡 Tip: You can type 1, 2, 3, 4, 5, 6, 7 to make a selection of the menu options or\n''👉 To check details of your state. Please type the name of your state below 👇\n''For eg. Maharashtra\n''👉 To check details of your District. Please type the name of your District below 👇\n''For eg. Patna\n'
 	return tex
 def get1(all):
-	q,li=getd('Gaya')
+	q,ni=getd('Gaya')
 
-	qq=str(li[0])
-	qw=str(li[2])
-	qe=str(li[3])
+	qq=str(ni[0])
+	qw=str(ni[2])
+	qe=str(ni[3])
 	tex='COVID-19 Updates 👇\n''▪️ Active Cases:'+qq+'\n''▪️ Cured/Discharged/Migrated cases:'+qw+'\n''▪️ Death cases:'+qe+'\n''For donation to Prime Minister''s Citizen Assistance & Relief in Emergency Situations (PM CARES) Fund (Donation is tax exempted) https://www.pmindia.gov.in\n''21 days Lockdown duration : From 25.03.2020 to 14.04.2020 Please stay at home. Essential commodities, medicines, etc would be available during Lockdown\n''Useful Alerts 👇\n''▪️ Fact : Claim that Government will extend 21 Day Lockdown when it expires is baseless\n''▪️ All 24 classes of medical devices are regulated under Drug Price Control regime from 1 April 2020\n''▪️ Capacity utilization of ICMR labs 38%, its lab network stands at 126\n''▪️ Health actions to be taken at place of congregation of migrant workers\n''▪️ CBSE to promote all students of classes I-VIII to the next grade\n''▪️ Students of classes IX & XI to be promoted on school-based assessments\n''▪️ Trained counselors & community leaders to provide psycho-social support to migrants in relief camps\n''▪️ Fact: COVID-19 does not spread from Mosquito bites\n''For Corona Volunteer Opportunities - https://self4society.mygov.in/volunteer/\n''Testing Facilities for COVID-19 in the Country 👇\n''▪️ Operational Govt. Laboratories: 126\n''▪️ Govt. Laboratories (being operationalized): +9\n''▪️ Authorized Private Laboratories: 51\n''For Pledge to Stay at Home -\n''https://pledge.mygov.in/stayathome/\n''For detailed information on coronavirus, please check the link below 👇\n''https://www.mygov.in/covid-19\n''https://www.mohfw.gov.in\n''👉 Type 2 for Symptoms\n''👉 Type 3, 4, 5, 6, 7 to see other options\n''👉 Type Menu to view the Main Menu\n''👉 To check details of your state. Please type the name of your state below 👇\n''For eg. Maharashtra\n''👉 To check details of your District. Please type the name of your District below 👇\n''For eg. Patna\n'
 	return tex
 def get2(all):
@@ -180,7 +180,7 @@ def send_message(chat_id,text='blabla'):
 
 @app.route('/',methods=['POST','GET'])
 def index():
-	li=['Andhra Pradesh', 'Arunachal Pradesh', 'Assam', 'Bihar', 'Chhattisgarh', 'Goa', 'Gujarat', 'Haryana', 'Himachal Pradesh', 'Jharkhand', 'Karnataka', 'Kerala', 'Madhya Pradesh', 'Maharashtra', 'Manipur', 'Meghalaya', 'Mizoram', 'Nagaland', 'Odisha', 'Punjab', 'Rajasthan', 'Sikkim', 'Tamil Nadu', 'Telangana', 'Tripura', 'Uttarakhand', 'Uttar Pradesh', 'West Bengal', 'Name of Union Territory (UT)', 'Andaman and Nicobar\nIslands', 'Chandigarh', 'Dadra and Nagar Haveli and Daman & Diu', 'Delhi', 'Jammu & Kashmir', 'Ladakh', 'Lakshadweep', 'Puducherry']
+	ki=['Andhra Pradesh', 'Arunachal Pradesh', 'Assam', 'Bihar', 'Chhattisgarh', 'Goa', 'Gujarat', 'Haryana', 'Himachal Pradesh', 'Jharkhand', 'Karnataka', 'Kerala', 'Madhya Pradesh', 'Maharashtra', 'Manipur', 'Meghalaya', 'Mizoram', 'Nagaland', 'Odisha', 'Punjab', 'Rajasthan', 'Sikkim', 'Tamil Nadu', 'Telangana', 'Tripura', 'Uttarakhand', 'Uttar Pradesh', 'West Bengal', 'Name of Union Territory (UT)', 'Andaman and Nicobar\nIslands', 'Chandigarh', 'Dadra and Nagar Haveli and Daman & Diu', 'Delhi', 'Jammu & Kashmir', 'Ladakh', 'Lakshadweep', 'Puducherry']
 	if request.method=='POST':
 		msg=request.get_json()
 		chat_id,symbol=parse_message(msg)
@@ -204,7 +204,7 @@ def index():
 		elif symbol=='7':
 			price=get7(symbol)
 
-		elif symbol in li:
+		elif symbol in ki:
 			price=get8(symbol)
 		else:
 			price=get9(symbol)
