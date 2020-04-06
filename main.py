@@ -66,23 +66,23 @@ def gets(state):
 		for t in ele:
 			for y in t:
 				dd.append(y)
-	ee = []
-	i = 0
-	j = 1
-	while i < len(dd):
-		if j == i:
-			j = j + 6
-		else:
-			ee.append(dd[i])
-		i = i + 1
+	#ee = []
+	#i = 0
+	#j = 1
+	#while i < len(dd):
+		#if j == i:
+			#j = j + 6
+		#else:
+			#ee.append(dd[i])
+		#i = i + 1
 	i = 0
 	ff=[]
-	while i < len(ee):
-		if ee[i] == state:
-			ff.append(ee[i + 1])
-			ff.append(ee[i + 2])
-			ff.append(ee[i+4])
-			ff.append(ee[i+6])
+	while i < len(dd):
+		if dd[i] == state:
+			ff.append(dd[i + 2])
+			ff.append(dd[i + 3])
+			ff.append(dd[i+5])
+			ff.append(dd[i+7])
 			break
 		i=i+1
 	return ff
