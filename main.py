@@ -79,10 +79,10 @@ def gets(state):
 	ff=[]
 	while i < len(ee):
 		if ee[i] == state:
+			ff.append(ee[i + 1])
 			ff.append(ee[i + 2])
-			ff.append(ee[i + 3])
-			ff.append(ee[i+5])
-			ff.append(ee[i+7])
+			ff.append(ee[i+4])
+			ff.append(ee[i+6])
 			break
 		i=i+1
 	return ff
