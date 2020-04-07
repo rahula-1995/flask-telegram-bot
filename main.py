@@ -61,11 +61,18 @@ def gets(state):
 	content1=driver.page_source
 	soup1 = BeautifulSoup(content1)
 	ty = soup1.find_all('tr', attrs={'class': 'state'})
-	dd = []
-	for ele in ty:
-		for t in ele:
-			for y in t:
-				dd.append(y)
+	ee={}
+	for row in ty:
+    		cells = row.find_all('td')
+   
+    		if cells[0].text not in ee:
+        		li=[]
+        		for ele in cells:
+            			f=ele.find_all('span',attrs={'class':'table__count-text'})
+            			for ele in f:
+                			li.append(ele.text)
+            
+        		ee[cells[0].text]=li
 	#ee = []
 	#i = 0
 	#j = 1
@@ -75,17 +82,17 @@ def gets(state):
 		#else:
 			#ee.append(dd[i])
 		#i = i + 1
-	i = 0
-	ff=[]
-	while i < len(dd):
-		if dd[i] == state:
-			ff.append(dd[i + 2])
-			ff.append(dd[i + 3])
-			ff.append(dd[i+5])
-			ff.append(dd[i+7])
-			break
-		i=i+1
-	return ff
+	#i = 0
+	#ff=[]
+	#while i < len(dd):
+		#if dd[i] == state:
+			#ff.append(dd[i + 2])
+			#ff.append(dd[i + 3])
+			#ff.append(dd[i+5])
+			#ff.append(dd[i+7])
+			#break
+		#i=i+1
+	return ee
 
 def get6(all):
 	tex='For medical help in India please reach out to the 24/7 Control Room.\n''📞 Phone: +91-11-23978046\n''☎️ Toll-Free Number: 1075\n''✉️ Email: ncov2019@gov.in\n''For Behavioural Health: Psycho-Social\n'' 📞 08046110007\n''For queries from a person outside India. Please contact Ministry of External Affairs(MEA), GOI\n''📞 1800118797\n''✉️ covid19@mea.gov.in\n''For Visa related queries\n''📞 01124300666\n''✉️ support.covid19-boi@gov.in\n''👉 Type 7 for global news on coronavirus\n''👉 Type 1, 2, 3, 4, 5 to see other options\n''👉 Type Menu to view the Main Menu\n''👉 To check details of your state. Please type the name of your state below 👇\n''For eg. Maharashtra\n''👉 To check details of your District. Please type the name of your District below 👇\n''For eg. Patna\n'
@@ -98,7 +105,7 @@ def get8(state):
 	ff=gets(state)
 	k={'Andhra Pradesh': '0866-2410978', 'Arunachal Pradesh': 9436055743, 'Assam': 6913347770, 'Bihar': 104, 'Chhattisgarh': 104, 'Goa': 104, 'Gujarat': 104, 'Haryana': 8558893911, 'Himachal Pradesh': 104, 'Jharkhand': 104, 'Karnataka': 104, 'Kerala': '0471-2552056', 'Madhya Pradesh': 104, 'Maharashtra': '020-26127394', 'Manipur': 3852411668, 'Meghalaya': 108, 'Mizoram': 102, 'Nagaland': 7005539653, 'Odisha': 9439994859, 'Punjab': 104, 'Rajasthan': '0141-2225624', 'Sikkim': 104, 'Tamil Nadu': '044-29510500', 'Telangana': 104, 'Tripura': '0381-2315879', 'Uttarakhand': 104, 'Uttar Pradesh': 18001805145, 'West Bengal': '1800313444222, 03323412600,', 'Name of Union Territory (UT)': 'Helpline Nos.', 'Andaman and Nicobar\nIslands': '03192-232102', 'Chandigarh': 9779558282, 'Dadra and Nagar Haveli and Daman & Diu': 104, 'Delhi': '011-22307145', 'Jammu & Kashmir': '01912520982, 0194-2440283', 'Ladakh': 1982256462, 'Lakshadweep': 104, 'Puducherry': 104}
 
-	tex='The helpline number for'+' '+str(state)+' '+'is'+' '+str(k[state])+'\n''COVID-19 Updates 👇\n''▪️ Total Cases:'+str(ff[0])+'\n''▪️ Active Cases:'+str(ff[1])+'\n''▪️ Cured/Discharged/Migrated cases:'+str(ff[2])+'\n''▪️ Death cases:'+str(ff[3])+'\n''Please check the PDF given below to check the helpline numbers of other states 👇\n''https://www.mohfw.gov.in/pdf/coronvavirushelplinenumber.pdf\n''👉 Type 1, 2, 3, 4, 5, 6 to see other options\n''👉 Type Menu to view the Main Menu\n''👉 To check details of your state. Please type the name of your state below 👇\n''For eg. Maharashtra\n''👉 To check details of your District. Please type the name of your District below 👇\n''For eg. Patna\n'
+	tex='The helpline number for'+' '+str(state)+' '+'is'+' '+str(k[state])+'\n''COVID-19 Updates 👇\n''▪️ Total Cases:'+str(ff[state][0])+'\n''▪️ Active Cases:'+str(ff[state][0]-ff[state][1]-ff[state][2])+'\n''▪️ Cured/Discharged/Migrated cases:'+str(ff[state][1])+'\n''▪️ Death cases:'+str(ff[state][2])+'\n''Please check the PDF given below to check the helpline numbers of other states 👇\n''https://www.mohfw.gov.in/pdf/coronvavirushelplinenumber.pdf\n''👉 Type 1, 2, 3, 4, 5, 6 to see other options\n''👉 Type Menu to view the Main Menu\n''👉 To check details of your state. Please type the name of your state below 👇\n''For eg. Maharashtra\n''👉 To check details of your District. Please type the name of your District below 👇\n''For eg. Patna\n'
 	return tex
 
 def get7(all):
@@ -118,10 +125,10 @@ def get7(all):
 
 def get9(district):
 	fg,b=getd(district)
-	if fg=='invalid district name':
+	if str(district) not in fg:
 		tex='sorry i did not understand or there is no case in this district\n'
 	else:
-		tex='COVID-19 Updates 👇\n''▪️ Total Cases:'+str(fg)+'\n'
+		tex='COVID-19 Updates 👇\n''▪️ Total Cases:'+str(fg[district][0])+'\n'
 	return tex+'1. Latest Update and Alerts on Coronavirus\n''2. What is Coronavirus and what are its symptoms?\n''3. How does Coronavirus spread?\n''4. How to reduce the risk of Coronavirus?\n''5. Professional Advice by Doctors\n''6. Where to get help?\n''7. News on coronavirus across the globe\n''👉 Type 1, 2, 3, 4, 5, 6 to see other options\n''👉 Type Menu to view the Main Menu\n''👉 To check details of your state. Please type the name of your state below 👇\n''For eg. Maharashtra\n''👉 To check details of your District. Please type the name of your District below 👇\n''For eg. Patna\n'
 
 
@@ -129,44 +136,61 @@ def get9(district):
 
 
 def getd(district):
-	k=str(district)
-	if k:
-		pass
-	else:
-		k='Gaya'
+	#k=str(district)
+	#if k:
+		#pass
+	#else:
+		#k='Gaya'
 	driver.get('https://www.covid19india.org/')
 	time.sleep(3)
 	content1 = driver.page_source
 
 	soup1 = BeautifulSoup(content1)
 
-	dis = soup1.find_all('tr', attrs={'class': 'district'})
-	w=[]
-	for row in dis:
-		flag = False
-		for ele in row:
+	tx = soup1.find_all('tr', attrs={'class': 'district'})
+	er={}
+	for row in tx:
+    		cells = row.find_all('td')
+   
+    		if cells[0].text not in er:
+        		li=[]
+        		for ele in cells:
+            			f=ele.find_all('span',attrs={'class':'table__count-text'})
+            			for ele in f:
+                			li.append(ele.text)
+            
+        		er[cells[0].text]=li
+	#w=[]
+	#for row in dis:
+		#flag = False
+		#for ele in row:
 
-			if ele.text == k:
-				flag = True
-			if flag:
-				for e in ele:
-					w.append(e)
+			#if ele.text == k:
+				#flag = True
+			#if flag:
+				#for e in ele:
+					#w.append(e)
 
-		if flag:
-			break
-	print(w)
-	if len(w)>0:
-		w.pop(1)
-	rows = soup1.find_all('div', attrs={'class': 'Level fadeInUp'})
-	rt=rows[0].find_all('h1')
-	li = []
-	for ele in rt:
-		li.append(ele.text)
-	print(li)
-	if len(w)<2:
-		return 'invalid district name',li
-	else:
-		return w[1],li
+		#if flag:
+			#break
+	#print(w)
+	#if len(w)>0:
+		#w.pop(1)
+	tt = soup1.find_all('div', attrs={'class': 'Level'})
+	ra=[]
+	for ele in tt:
+    		cc=ele.find_all('h1')
+    		for ele in cc:
+        		ra.append(ele.text)
+	#rt=rows[0].find_all('h1')
+	#li = []
+	#for ele in rt:
+		#li.append(ele.text)
+	#print(li)
+	#if len(w)<2:
+		#return 'invalid district name',li
+	#else:
+	return er,ra
 
 
 def parse_message(message):
