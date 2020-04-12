@@ -32,7 +32,7 @@ def geth(all):
 	tex='Namaste ''\nThis is Coronavirus (COVID-19) Helpdesk developed by Rahul Anand to create awareness and help you and your family stay safe.\n''For any emergency \n''📞 Helpline: 011-23978046 | Toll-Free Number: 1075\n''✉️ Email: ncov2019@gov.in\n''Please choose from the following options 👇\n''1. Latest Update and Alerts on Coronavirus\n''2. What is Coronavirus and what are its symptoms?\n''3. How does Coronavirus spread?\n''4. How to reduce the risk of Coronavirus?\n''5. Professional Advice by Doctors\n''6. Where to get help?\n''💡 Tip: You can type 1, 2, 3, 4, 5, 6 to make a selection of the menu options or\n''👉 To check details of your state. Please type the name of your state below 👇\n''For eg. Maharashtra\n''👉 To check details of your District. Please type the name of your District below 👇\n''For eg. Patna\n'
 	return tex
 def get1(all):
-	q,ni=getd('Gaya')
+	q,ni=world('Gaya')
 
 	qq=str(ni[0])
 	qt=str(ni[1])
@@ -83,7 +83,7 @@ def get8(state):
 
 
 def get9(district):
-	fg,b=getd(district)
+	fg=getd(district)
 	if str(district) not in fg:
 		tex='sorry i did not understand or there is no case in this district\n'
 	else:
@@ -103,16 +103,29 @@ def getd(district):
             s.append(value)
         districtdict[s[0]] = s[1:]
 
-    maindatas = requests.get('https://coronaupdate-api.herokuapp.com/indiahead/')
-    data4 = maindatas.json()
+    #maindatas = requests.get('https://coronaupdate-api.herokuapp.com/indiahead/')
+    #data4 = maindatas.json()
 
-    maindata = []
-    for ele in data4:
+    #maindata = []
+    #for ele in data4:
+        #for key, value in ele.items():
+            #maindata.append(value)
+
+
+    return districtdict
+
+def world(country):
+    worlddata = requests.get('https://coronaupdate-api.herokuapp.com/worlddata/')
+    data1 = worlddata.json()
+    worlddict = {}
+    for ele in data1:
+        s = []
         for key, value in ele.items():
-            maindata.append(value)
+            s.append(value)
+        worlddict[s[0]] = s[1:]
+    ra=worlddict['India']
 
-
-    return districtdict,maindata
+    return worlddict,ra
 
 
 def parse_message(message):
