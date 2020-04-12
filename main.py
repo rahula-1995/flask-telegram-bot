@@ -38,7 +38,7 @@ def get1(all):
 	qt=str(ni[1])
 	qw=str(ni[2])
 	qe=str(ni[3])
-	tex='COVID-19 Updates 👇\n''▪️ confirmed Cases:'+qq+'\n''▪️ Active Cases:'+qt+'\n''▪️ Cured/Discharged/Migrated cases:'+qw+'\n''▪️ Death cases:'+qe+'\n''For donation to Prime Minister''s Citizen Assistance & Relief in Emergency Situations (PM CARES) Fund (Donation is tax exempted) https://www.pmindia.gov.in\n''21 days Lockdown duration : From 25.03.2020 to 14.04.2020 Please stay at home. Essential commodities, medicines, etc would be available during Lockdown\n''Useful Alerts 👇\n''▪️ Fact : Claim that Government will extend 21 Day Lockdown when it expires is baseless\n''▪️ All 24 classes of medical devices are regulated under Drug Price Control regime from 1 April 2020\n''▪️ Capacity utilization of ICMR labs 38%, its lab network stands at 126\n''▪️ Health actions to be taken at place of congregation of migrant workers\n''▪️ CBSE to promote all students of classes I-VIII to the next grade\n''▪️ Students of classes IX & XI to be promoted on school-based assessments\n''▪️ Trained counselors & community leaders to provide psycho-social support to migrants in relief camps\n''▪️ Fact: COVID-19 does not spread from Mosquito bites\n''For Corona Volunteer Opportunities - https://self4society.mygov.in/volunteer/\n''Testing Facilities for COVID-19 in the Country 👇\n''▪️ Operational Govt. Laboratories: 126\n''▪️ Govt. Laboratories (being operationalized): +9\n''▪️ Authorized Private Laboratories: 51\n''For Pledge to Stay at Home -\n''https://pledge.mygov.in/stayathome/\n''For detailed information on coronavirus, please check the link below 👇\n''https://www.mygov.in/covid-19\n''https://www.mohfw.gov.in\n''👉 Type 2 for Symptoms\n''👉 Type 3, 4, 5, 6, 7 to see other options\n''👉 Type Menu to view the Main Menu\n''👉 To check details of your state. Please type the name of your state below 👇\n''For eg. Maharashtra\n''👉 To check details of your District. Please type the name of your District below 👇\n''For eg. Patna\n'
+	tex='COVID-19 Updates 👇\n''▪️ confirmed Cases:'+qq+'\n''▪️ Active Cases:'+qt+'\n''▪️ Cured/Discharged/Migrated cases:'+qw+'\n''▪️ Death cases:'+qe+'\n''For donation to Prime Minister''s Citizen Assistance & Relief in Emergency Situations (PM CARES) Fund (Donation is tax exempted) https://www.pmindia.gov.in\n''21 days Lockdown duration : From 25.03.2020 to 14.04.2020 Please stay at home. Essential commodities, medicines, etc would be available during Lockdown\n''Useful Alerts 👇\n''▪️ All 24 classes of medical devices are regulated under Drug Price Control regime from 1 April 2020\n''▪️ Capacity utilization of ICMR labs 38%, its lab network stands at 126\n''▪️ CBSE to promote all students of classes I-VIII to the next grade\n''▪️ Students of classes IX & XI to be promoted on school-based assessments\n''For Corona Volunteer Opportunities - https://self4society.mygov.in/volunteer/\n''Testing Facilities for COVID-19 in the Country 👇\n''▪️ Operational Govt. Laboratories: 126\n''▪️ Govt. Laboratories (being operationalized): +9\n''▪️ Authorized Private Laboratories: 51\n''For Pledge to Stay at Home -\n''https://pledge.mygov.in/stayathome/\n''For detailed information on coronavirus, please check the link below 👇\n''https://www.mygov.in/covid-19\n''https://www.mohfw.gov.in\n''👉 Type 2 for Symptoms\n''👉 Type 3, 4, 5, 6, 7 to see other options\n''👉 Type Menu to view the Main Menu\n''👉 To check details of your state. Please type the name of your state below 👇\n''For eg. Maharashtra\n''👉 To check details of your District. Please type the name of your District below 👇\n''For eg. Patna\n'
 	return tex
 def get2(all):
 	tex='Coronaviruses are a large family of viruses, some causes illness in people. Its symptoms in humans are\n''🤒 Fever\n''😐 Breathing problem\n''🤧 Coughing\n''😫 Tightness of chest\n''👃 Running Nose\n''😨 Headache\n''🌡️ Feeling unwell\n''😷 Pneumonia\n''💉 Kidney Failure\n''It can be difficult to identify the disease based on symptoms alone. Check when you should get tested 👇\n''https://www.mohfw.gov.in/pdf/FINAL_14_03_2020_ENg.pdf\n''You can also view the video on symptoms by Director,AIIMS-Delhi 👇\n''https://youtu.be/E8-UoeWewFI\n''👉 Type 3 to know more on How does Coronavirus spread?\n''👉 Type 1, 4, 5, 6, 7 to see other options\n''👉 Type Menu to view the Main Menu\n''👉 To check details of your state. Please type the name of your state below 👇\n''For eg. Maharashtra\n''👉 To check details of your District. Please type the name of your District below 👇\n''For eg. Patna\n'
@@ -56,43 +56,17 @@ def get5(all):
 	tex='Please watch the videos by Doctors to clear your doubts on Coronavirus 👇\n'' Stay Home, Stay Safe\n''https://youtu.be/yZd8bPTfYOg\n''Connecting with children during lockdown\n''https://youtu.be/OYD9bogtJlU\n''Advice on Prevention\n''https://youtu.be/E8-UoeWewFI\n''Advice for Senior Citizen\n''https://youtu.be/I6F1I7_4gDI\n''Advice for Children\n''https://youtu.be/mnNghi8m3l4\n''👉 Type 6 for any other help\n''👉 Type 1, 2, 3, 4, 7 to see other options\n''👉 Type Menu to view the Main Menu\n''👉 To check details of your state. Please type the name of your state below 👇\n''For eg. Maharashtra\n''👉 To check details of your District. Please type the name of your District below 👇\n''For eg. Patna\n'
 	return tex
 def gets(state):
-	driver.get('https://www.covid19india.org/')
-	time.sleep(2)
-	content1=driver.page_source
-	soup1 = BeautifulSoup(content1)
-	ty = soup1.find_all('tr', attrs={'class': 'state'})
-	ee={}
-	for row in ty:
-    		cells = row.find_all('td')
-   
-    		if cells[0].text not in ee:
-        		li=[]
-        		for ele in cells:
-            			f=ele.find_all('span',attrs={'class':'table__count-text'})
-            			for ele in f:
-                			li.append(ele.text)
-            
-        		ee[cells[0].text]=li
-	#ee = []
-	#i = 0
-	#j = 1
-	#while i < len(dd):
-		#if j == i:
-			#j = j + 6
-		#else:
-			#ee.append(dd[i])
-		#i = i + 1
-	#i = 0
-	#ff=[]
-	#while i < len(dd):
-		#if dd[i] == state:
-			#ff.append(dd[i + 2])
-			#ff.append(dd[i + 3])
-			#ff.append(dd[i+5])
-			#ff.append(dd[i+7])
-			#break
-		#i=i+1
-	return ee
+	statedata = requests.get('https://coronaupdate-api.herokuapp.com/indiadata/')
+    	data2 = statedata.json()
+
+    	statedict = {}
+    	for ele in data2:
+        	s = []
+        	for key, value in ele.items():
+            		s.append(value)
+        	statedict[s[0]] = s[1:]
+	
+	return statedict
 
 def get6(all):
 	tex='For medical help in India please reach out to the 24/7 Control Room.\n''📞 Phone: +91-11-23978046\n''☎️ Toll-Free Number: 1075\n''✉️ Email: ncov2019@gov.in\n''For Behavioural Health: Psycho-Social\n'' 📞 08046110007\n''For queries from a person outside India. Please contact Ministry of External Affairs(MEA), GOI\n''📞 1800118797\n''✉️ covid19@mea.gov.in\n''For Visa related queries\n''📞 01124300666\n''✉️ support.covid19-boi@gov.in\n''👉 Type 7 for global news on coronavirus\n''👉 Type 1, 2, 3, 4, 5 to see other options\n''👉 Type Menu to view the Main Menu\n''👉 To check details of your state. Please type the name of your state below 👇\n''For eg. Maharashtra\n''👉 To check details of your District. Please type the name of your District below 👇\n''For eg. Patna\n'
@@ -102,10 +76,11 @@ def get6(all):
 
 
 def get8(state):
-	ff=gets(state)
+	gg=gets(state)
+	ff=gg[state]
 	k={'Andhra Pradesh': '0866-2410978', 'Arunachal Pradesh': 9436055743, 'Assam': 6913347770, 'Bihar': 104, 'Chhattisgarh': 104, 'Goa': 104, 'Gujarat': 104, 'Haryana': 8558893911, 'Himachal Pradesh': 104, 'Jharkhand': 104, 'Karnataka': 104, 'Kerala': '0471-2552056', 'Madhya Pradesh': 104, 'Maharashtra': '020-26127394', 'Manipur': 3852411668, 'Meghalaya': 108, 'Mizoram': 102, 'Nagaland': 7005539653, 'Odisha': 9439994859, 'Punjab': 104, 'Rajasthan': '0141-2225624', 'Sikkim': 104, 'Tamil Nadu': '044-29510500', 'Telangana': 104, 'Tripura': '0381-2315879', 'Uttarakhand': 104, 'Uttar Pradesh': 18001805145, 'West Bengal': '1800313444222, 03323412600,', 'Name of Union Territory (UT)': 'Helpline Nos.', 'Andaman and Nicobar\nIslands': '03192-232102', 'Chandigarh': 9779558282, 'Dadra and Nagar Haveli and Daman & Diu': 104, 'Delhi': '011-22307145', 'Jammu & Kashmir': '01912520982, 0194-2440283', 'Ladakh': 1982256462, 'Lakshadweep': 104, 'Puducherry': 104}
 
-	tex='The helpline number for'+' '+str(state)+' '+'is'+' '+str(k[state])+'\n''COVID-19 Updates 👇\n''▪️ Total Cases:'+str(ff[state][0])+'\n''▪️ Active Cases:'+str(int(ff[state][0])-int(ff[state][1])-int(ff[state][2]))+'\n''▪️ Cured/Discharged/Migrated cases:'+str(ff[state][1])+'\n''▪️ Death cases:'+str(ff[state][2])+'\n''Please check the PDF given below to check the helpline numbers of other states 👇\n''https://www.mohfw.gov.in/pdf/coronvavirushelplinenumber.pdf\n''👉 Type 1, 2, 3, 4, 5, 6 to see other options\n''👉 Type Menu to view the Main Menu\n''👉 To check details of your state. Please type the name of your state below 👇\n''For eg. Maharashtra\n''👉 To check details of your District. Please type the name of your District below 👇\n''For eg. Patna\n'
+	tex='The helpline number for'+' '+str(state)+' '+'is'+' '+str(k[state])+'\n''COVID-19 Updates 👇\n''▪️ Total Cases:'+str(ff[state][0])+'\n''▪️ Cured/Discharged/Migrated cases:'+str(ff[state][1])+'\n''▪️ Death cases:'+str(ff[state][2])+'\n''Please check the PDF given below to check the helpline numbers of other states 👇\n''https://www.mohfw.gov.in/pdf/coronvavirushelplinenumber.pdf\n''👉 Type 1, 2, 3, 4, 5, 6 to see other options\n''👉 Type Menu to view the Main Menu\n''👉 To check details of your state. Please type the name of your state below 👇\n''For eg. Maharashtra\n''👉 To check details of your District. Please type the name of your District below 👇\n''For eg. Patna\n'
 	return tex
 
 def get7(all):
@@ -132,65 +107,28 @@ def get9(district):
 	return tex+'1. Latest Update and Alerts on Coronavirus\n''2. What is Coronavirus and what are its symptoms?\n''3. How does Coronavirus spread?\n''4. How to reduce the risk of Coronavirus?\n''5. Professional Advice by Doctors\n''6. Where to get help?\n''7. News on coronavirus across the globe\n''👉 Type 1, 2, 3, 4, 5, 6 to see other options\n''👉 Type Menu to view the Main Menu\n''👉 To check details of your state. Please type the name of your state below 👇\n''For eg. Maharashtra\n''👉 To check details of your District. Please type the name of your District below 👇\n''For eg. Patna\n'
 
 
-
-
-
 def getd(district):
-	#k=str(district)
-	#if k:
-		#pass
-	#else:
-		#k='Gaya'
-	driver.get('https://www.covid19india.org/')
-	time.sleep(3)
-	content1 = driver.page_source
 
-	soup1 = BeautifulSoup(content1)
+    districtdata = requests.get('https://coronaupdate-api.herokuapp.com/districtdata/')
+    data3 = districtdata.json()
 
-	tx = soup1.find_all('tr', attrs={'class': 'district'})
-	er={}
-	for row in tx:
-    		cells = row.find_all('td')
-   
-    		if cells[0].text not in er:
-        		li=[]
-        		for ele in cells:
-            			f=ele.find_all('span',attrs={'class':'table__count-text'})
-            			for ele in f:
-                			li.append(ele.text)
-            
-        		er[cells[0].text]=li
-	#w=[]
-	#for row in dis:
-		#flag = False
-		#for ele in row:
+    districtdict = {}
+    for ele in data3:
+        s = []
+        for key, value in ele.items():
+            s.append(value)
+        districtdict[s[0]] = s[1:]
 
-			#if ele.text == k:
-				#flag = True
-			#if flag:
-				#for e in ele:
-					#w.append(e)
+    maindatas = requests.get('https://coronaupdate-api.herokuapp.com/indiahead/')
+    data4 = maindatas.json()
 
-		#if flag:
-			#break
-	#print(w)
-	#if len(w)>0:
-		#w.pop(1)
-	tt = soup1.find_all('div', attrs={'class': 'Level'})
-	ra=[]
-	for ele in tt:
-    		cc=ele.find_all('h1')
-    		for ele in cc:
-        		ra.append(ele.text)
-	#rt=rows[0].find_all('h1')
-	#li = []
-	#for ele in rt:
-		#li.append(ele.text)
-	#print(li)
-	#if len(w)<2:
-		#return 'invalid district name',li
-	#else:
-	return er,ra
+    maindata = []
+    for ele in data4:
+        for key, value in ele.items():
+            maindata.append(value)
+
+
+    return districtdict,maindata
 
 
 def parse_message(message):
