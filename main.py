@@ -57,15 +57,13 @@ def get5(all):
 	return tex
 def gets(state):
 	statedata = requests.get('https://coronaupdate-api.herokuapp.com/indiadata/')
-    	data2 = statedata.json()
-
-    	statedict = {}
-    	for ele in data2:
-        	s = []
-        	for key, value in ele.items():
-            		s.append(value)
-        	statedict[s[0]] = s[1:]
-	
+	data2 = statedata.json()
+	statedict = {}
+	for ele in data2:
+		s = []
+		for key, value in ele.items():
+			s.append(value)
+		statedict[s[0]] = s[1:]
 	return statedict
 
 def get6(all):
